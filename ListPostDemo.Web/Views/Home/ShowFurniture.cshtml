@@ -1,0 +1,44 @@
+﻿@model ShowFurnitureViewModel
+
+@if (!String.IsNullOrEmpty(Model.Message))
+{
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.Message
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>In Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.FurnitureItems)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Color
+                </td>
+                <td>
+                    @item.Price.ToString("C")
+                </td>
+                <td>
+                    @item.QuantityInStock
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
